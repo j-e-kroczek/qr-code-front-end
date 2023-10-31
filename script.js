@@ -1,19 +1,19 @@
-document
-  .getElementById('generateButton')
-  .addEventListener('click', function () {
-    const url = document.getElementById('urlInput').value;
-    if (url) {
-      generateQRCode(url);
-    } else {
-      alert('Please enter a URL.');
-    }
-  });
+const apiUrl = 'https://dlkvduh8th.execute-api.us-east-1.amazonaws.com';
+
+const GenerateBtn = document.getElementById('generateButton');
+const loadingText = document.getElementById('loadingText');
+const qrCodeImage = document.getElementById('qrCodeImage');
+
+GenerateBtn.addEventListener('click', function () {
+  const url = document.getElementById('urlInput').value;
+  if (url) {
+    generateQRCode(url);
+  } else {
+    alert('Please enter a URL.');
+  }
+});
 
 async function generateQRCode(url) {
-  const apiUrl = 'https://dlkvduh8th.execute-api.us-east-1.amazonaws.com';
-  const loadingText = document.getElementById('loadingText');
-  const qrCodeImage = document.getElementById('qrCodeImage');
-
   loadingText.style.display = 'block';
   qrCodeImage.style.display = 'none';
 
